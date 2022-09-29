@@ -18,10 +18,15 @@ const ContactList = ({ contacts, handleRemove }) => (
   </ul>
 );
 
-ContactList.prototype = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  number: PropTypes.number.isRequired,
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  handleRemove: PropTypes.func.isRequired,
 };
 
 export default ContactList;
